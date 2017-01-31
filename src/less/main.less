@@ -1,0 +1,124 @@
+/*****************************************
+*
+*           react-wp-gallery
+*           - by Trond Erling Hundal
+*           - januar 2017
+*
+*
+*****************************************/
+
+@arrowsize: 30px;
+
+@import "normalize";
+
+#root {
+
+    .image-grid {
+        display: flex;
+        .image {
+            display: flex;
+            &.thumb {
+                .image-card {
+                    img {
+                        max-width: 250px;
+                    }
+                }
+            }
+        }
+    }
+
+    .image.fullsize {
+        position: absolute;
+        z-index: 200;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: calc(~'100vh - 10px');
+        text-align: center;
+        background-color: rgba(0, 0, 0, 0.7);
+        padding-top: 10px;
+
+        .inner {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: auto;
+            text-align: left;
+            height: 100%;
+            padding: 5px;
+
+            .image-container {
+
+                .close-image {
+                    position: absolute;
+                    display: block;
+
+                    text-decoration: none;
+                    color: #000;
+                    opacity: 0.8;
+                    font-size: 20px;
+
+                    top: 30px;
+                    margin-left: 10px;
+
+                    z-index: 400;
+                }
+
+                .imagenav {
+                    position: absolute;
+                    display: block;
+                    z-index: 300;
+                    top: 50%;
+                    margin-top: -25px;
+                    width: 40px;
+                    height: 50px;
+
+                    &.previous-image {
+                        left: 0;
+
+                        button {
+                            background: none;
+                            width: 0;
+                            height: 0;
+                            font-size:0;
+                            border-top: @arrowsize solid transparent;
+                            border-bottom: @arrowsize solid transparent;
+                            border-left: @arrowsize solid transparent;
+                            border-right: @arrowsize solid #fff;
+                            opacity: 0.4;
+                            &:hover {
+                                opacity: 0.9;
+                            }
+                        }
+                    }
+
+                    &.next-image {
+                        right: 32px;
+
+                        button {
+                            background: none;
+                            width: 0;
+                            height: 0;
+                            font-size: 0;
+                            border-top: @arrowsize solid transparent;
+                            border-bottom: @arrowsize solid transparent;
+                            border-right: @arrowsize solid transparent;
+                            border-left: @arrowsize solid #fff;
+
+                            opacity: 0.4;
+                            &:hover {
+                                opacity: 0.9;
+                            }
+                        }
+                    }
+
+                }
+
+                img {
+                    max-width: calc(~'100vw - 10px');
+                    max-height: calc(~'100vh - 20px');
+                }
+            }
+        }
+    }
+}

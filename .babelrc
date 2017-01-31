@@ -1,0 +1,9 @@
+{
+ "presets": ['latest', 'stage-0', 'react'],
+  plugins: [
+    ["babel-root-import", {
+      "rootPathPrefix":"~",
+      "rootPathSuffix":"src/js"
+    }]
+  ]
+}
