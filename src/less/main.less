@@ -33,10 +33,9 @@
         top: 0;
         left: 0;
         right: 0;
-        height: calc(~'100vh - 10px');
+        bottom: 0;
         text-align: center;
         background-color: rgba(0, 0, 0, 0.7);
-        padding-top: 10px;
 
         .inner {
             display: flex;
@@ -45,42 +44,67 @@
             margin: auto;
             text-align: left;
             height: 100%;
-            padding: 5px;
 
             .image-container {
 
-                .close-image {
-                    position: absolute;
-                    display: block;
+                figure {
+                    position: relative;
+                    padding: 0 0 0 0 ;
+                    margin: 0 0 0 0 ;
 
-                    text-decoration: none;
-                    color: #000;
-                    opacity: 0.8;
-                    font-size: 20px;
+                    .image-header {
+                        position: absolute;
+                        z-index: 400;
+                        height: 50px;
+                        width: 100%;
+                        padding: 0 15px;
 
-                    top: 30px;
-                    margin-left: 10px;
+                        display: flex;
+                        flex-flow: row wrap;
 
-                    z-index: 400;
+                        align-items: center;
+                        justify-content: space-between;
+
+                        .close-image {
+                            display: inline-block;
+                            text-decoration: none;
+                            color: #000;
+                            opacity: 0.8;
+                            font-size: 18px;
+                            margin-left: 10px;
+                        }
+
+                        .page-number {
+                            display: inline-block;
+                            background: #fff;
+                            border-radius: 30px;
+                            padding: 12px;
+                            span {
+                                font-size: 0.75em;
+                            }
+                        }
+                    }
+                    img {
+                        max-width: calc(~'100vw - 10px');
+                        max-height: calc(~'100vh - 20px');
+                    }
                 }
 
                 .imagenav {
                     position: absolute;
-                    display: block;
+                    display:block;
                     z-index: 300;
                     top: 50%;
                     margin-top: -25px;
-                    width: 40px;
-                    height: 50px;
 
                     &.previous-image {
                         left: 0;
 
-                        button {
+                        div.arrow-left {
                             background: none;
                             width: 0;
                             height: 0;
-                            font-size:0;
+                            font-size: 0;
                             border-top: @arrowsize solid transparent;
                             border-bottom: @arrowsize solid transparent;
                             border-left: @arrowsize solid transparent;
@@ -95,7 +119,7 @@
                     &.next-image {
                         right: 32px;
 
-                        button {
+                        div.arrow-right {
                             background: none;
                             width: 0;
                             height: 0;
@@ -112,11 +136,6 @@
                         }
                     }
 
-                }
-
-                img {
-                    max-width: calc(~'100vw - 10px');
-                    max-height: calc(~'100vh - 20px');
                 }
             }
         }

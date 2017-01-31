@@ -12,7 +12,7 @@ class ImageFull extends Component {
     constructor(props) {
         super(props);
         this.previousImage = this.navigateImage.bind(this, -1);
-        this.closeImage = this.closeImage.bind(this) ;
+        this.closeImage = this.closeImage.bind(this);
         this.nextImage = this.navigateImage.bind(this, 1);
         this.navigateImage = this.navigateImage.bind(this);
         this.state = {image: null};
@@ -55,28 +55,35 @@ class ImageFull extends Component {
         }
     }
 
-    closeImage(e){
+    closeImage(e) {
         this.props.dispatch(push('/'));
         e.stopPropagation();
     }
 
     render() {
         const {image} = this.state;
+        const {images} = this.props ;
         if (!image) {
             return <div className="loading spinner icon"><span>Laster inn bilde...</span></div>;
         }
         return <div className="image fullsize dialog overlay" onClick={this.closeImage}>
             <div className="inner">
                 <div className="image-container">
-                    <img src={image.full} onClick={this.nextImage} />
-                    <Link to="/" className="close-image">X</Link>
-                    <div className="imagenav previous-image">
-                        <button onClick={this.previousImage} className="btn-previous btn">Previous</button>
-                    </div>
-                    <div className="imagenav next-image">
-                        <button onClick={this.nextImage} className="btn-next btn">Next</button>
+                    <figure>
+                        <div className="image-header">
+                            <div className="page-number"><span>{images.indexOf(image)+1 + ' av ' + images.length}</span></div>
+                            <Link to="/" className="close-image">X</Link>
+                        </div>
+                        <img src={image.full} onClick={this.nextImage}/>
+                    </figure>
+
+                    <div className="imagenav previous-image" onClick={this.previousImage}>
+                        <div  className="arrow arrow-left">Previous</div>
                     </div>
 
+                    <div className="imagenav next-image" onClick={this.nextImage} >
+                        <div className="arrow arrow-right">Next</div>
+                    </div>
                 </div>
             </div>
         </div>;
