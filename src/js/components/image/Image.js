@@ -14,9 +14,7 @@ class Image extends Component {
             <div className="image-container">
                 {isThumbnail  ? <Link to={`/image/${image.id}`}>{imageDef}</Link> : {imageDef}}
             </div>
-            <div className="action">
-                Lik | Share
-            </div>
+            {/*<div className="action"></div>*/}
         </div>
     }
 }
