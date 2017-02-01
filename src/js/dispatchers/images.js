@@ -52,6 +52,7 @@ export const requestImages = () => {
                 image.id = index;
                 return image;
             }));
+
         }).then((data)=> {
             dispatch(actions.getImagesSuccess(data));
         });
